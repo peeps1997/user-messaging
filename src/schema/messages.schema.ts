@@ -1,4 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  Long,
+} from 'typeorm';
 import { User } from './users.schema';
 
 @Entity()
@@ -10,7 +16,7 @@ export class Message {
   text: string;
 
   @Column()
-  timestamp: number;
+  timestamp: string;
 
   @Column()
   isSent: boolean;
