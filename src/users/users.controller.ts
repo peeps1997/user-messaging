@@ -23,7 +23,6 @@ export class UserController {
     @Inject('MESSAGING_SERVICE') private client: ClientProxy,
   ) {}
 
-  @UseGuards(JwtAuthGuard)
   @Get()
   index(): Promise<User[]> {
     return this.userService.findAll();
