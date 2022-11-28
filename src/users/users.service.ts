@@ -33,7 +33,7 @@ export class UsersService {
     const fromUser = { id: +userId.id };
     message.timestamp = currentEpoch();
     message.fromUser = fromUser;
-    message.isSent = true;
+    message.isSent = false;
     this.client
       .send(
         {
