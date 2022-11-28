@@ -16,6 +16,12 @@ A Test App in NestJS
 
 ```bash
 $ npm install
+  
+# RabbitMQ installation 
+$ brew update
+$ brew install rabbitmq
+$ export PATH=$PATH:/usr/local/sbin
+$ brew services start rabbitmq
 ```
 
 ## Running the app
@@ -26,6 +32,7 @@ $ npm run start
 
 # watch mode
 $ npm run start:dev
+  
 ```
 
 ## Working
