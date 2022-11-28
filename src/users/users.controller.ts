@@ -23,6 +23,24 @@ export class UserController {
     @Inject('MESSAGING_SERVICE') private client: ClientProxy,
   ) {}
 
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  index(): Promise<User[]> {
+    return this.userService.findAll();
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get(':id')
+  async getUser(@Param() id): Promise<User> {
+    return this.userService.findOne(id.id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get(':email')
+  async getUserEmail(@Param() email): Promise<User> {
+    return this.userService.findOnebyEmail(email.email);
+  }
+
   @Post('create')
   async create(@Body() userData: User): Promise<any> {
     return this.userService.create(userData);
